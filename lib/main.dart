@@ -9,7 +9,7 @@ void main() {
   //SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
   
   runApp(ChangeNotifierProvider<AppStateModel>(
-    create: (_) => AppStateModel(),
+    create: (_) => AppStateModel()..loadProducts(),
     child: CupertinoStoreApp(), 
     ));
 }
