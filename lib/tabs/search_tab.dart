@@ -1,6 +1,7 @@
 import 'package:cupertino_app/models/app_state_model.dart';
 import 'package:cupertino_app/styles/styles.dart';
 import 'package:cupertino_app/tabs/product_row_item.dart';
+import 'package:cupertino_app/tabs/search_bar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:provider/provider.dart';
 
@@ -36,10 +37,10 @@ class _SearchTabState extends State<SearchTab> {
   Widget _buildSearchBox() {
     return Padding(
       padding: const EdgeInsets.all(8),
-      // child: SearchBar(
-      //   controller: _controller,
-      //   focusNode: _focusNode,
-      // ),
+      child: SearchBar(
+        controller: _controller,
+        focusNode: _focusNode,
+      ),
     );
   }
 
