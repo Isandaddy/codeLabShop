@@ -1,5 +1,6 @@
 import 'package:cupertino_app/models/app_state_model.dart';
 import 'package:cupertino_app/styles/styles.dart';
+import 'package:cupertino_app/tabs/shopping_cart_item.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
@@ -155,6 +156,11 @@ class _ShoppingCartTabState extends State<ShoppingCartTab> {
               padding: const EdgeInsets.symmetric(horizontal: 16),
               child: _buildLocationField(),
             );  
+          case 3:
+            return Padding(
+              padding: const EdgeInsets.fromLTRB(16, 8, 16, 24),
+              child: _buildDateAndTimePicker(context),
+            );  
           default:
             if (model.productsInCart.length > productIndex) {
               return ShoppingCartItem(
@@ -208,15 +214,15 @@ class _ShoppingCartTabState extends State<ShoppingCartTab> {
     return Consumer<AppStateModel>(
       builder: (context, model, child) {
         return CustomScrollView(
-          slivers: const <Widget>[
-            CupertinoSliverNavigationBar(
+          slivers: <Widget>[
+            const CupertinoSliverNavigationBar(
               largeTitle: Text('Shopping Cart'),
             ),
             SliverSafeArea(
               top: false,
               minimum: const EdgeInsets.only(top: 4),
               sliver: SliverList(
-                delegate: null //_buildSliverChildBuilderDelegate(model),
+                delegate: _buildSliverChildBuilderDelegate(model),
                 )
             )
           ],
